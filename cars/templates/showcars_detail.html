@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="row">
+    <div class="col-md-8">
+        <img src="{{all_details.user_image.url}}" alt="" width="100%">
+    </div>
+<div class="col-md-4">
+      <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <h2 class="card-header">{{all_details.car_name}}</h2>
+      <div class="card-body">
+          <h5 class="card-title">Car Details</h5>
+          <h5 class="card-text">Year Of Purchase: {{all_details.year_of_purchase}}</h5>
+          <h5 class="card-text">Car Owner: {{all_details.owner_name}}</h5>
+          <h5 class="card-text">Owner Age: {{all_details.owner_age}}</h5>
+          <h5 class="card-text">Sunroof Type: {{all_details.roof.roof_type}}</h5>
+          <h5 class="card-text">Sunroof Glass Color: {{all_details.roof.glass_color}}</h5>
+          <h5 class="card-text">Miles on Car: {{all_details.miles.miles_on_car}}</h5>
+          <h5 class="card-text">Car color: {{all_details.car_color}}</h5>
+          <h5 class="card-text">Engine variant: {{all_details.engine.engine_capacity}}</h5>
+          {% if all_details.insurance %}
+          <h5 class="card-text">Vehicle Insurance is Valid</h5>
+          {% else %}
+          <h5 class="card-text">Vehicle Insurance is Not Valid</h5>
+          {% endif %}
+          <h5 class="card-text">Maintanance Services Peformed on car:</h5>
+          {% for service_performed in all_details.servicing.all %}
+          <h5 class="card-text">-{{service_performed.service_type}}</h5>
+          {% endfor %}
+      </div>
+      </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+1.Login/Logout/Register Users
+2.Models using ForeignKey/ManyManyToField/OneToOneField
+3.CRUD(POST,PUT,GET,DELETE) methods
+4.CRUD(POST,PUT,GET,DELETE) for API with models having ForeignKey and ManyToManyField
+5.ModelViewset, APIView, Function based view, Class based view
+6.Adding ExtraFields in serializer
+7.Partial Update(PATCH)
+8.Form
+9.Serializer

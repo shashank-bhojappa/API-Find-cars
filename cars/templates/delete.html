@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<p>Are you sure you want to delete "{{item.car_name}}"</p>
+<p><a class="btn btn-danger" href="{% url 'cars' %}">Cancel</a></p>
+<form method="POST" action="">
+{% csrf_token %}
+<input class="btn btn-primary" type="submit" value="Confirm">
+</form>
+{% endblock %}

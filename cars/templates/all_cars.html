@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Car Listings</h1>
+<div class="row">
+
+{% for car in show_users %}
+
+<div class="col-md-4" style="width: 18rem;">
+  <img class="card-img-top" src="{{car.user_image.url}}">
+  <div class="card-body">
+    <h2><a href="{% url 'all_car_details' car.pk%}">{{ car.car_name }}</a></h2>
+    <hr>
+    <small>{{ car.year_of_purchase }} | {{car.owner_name}}</small>
+
+
+    {% if user.is_authenticated %}
+      {% if user.username == car.owner_name %}
+      <p><a href="{% url 'update_details' car.pk %}">Edit</a> | <a href="{% url 'delete_car' car.pk %}">Delete</a></p>
+      {% endif %}
+    {% endif %}
+
+  </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

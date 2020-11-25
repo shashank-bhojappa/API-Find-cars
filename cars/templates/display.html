@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<h2>Car Registration Form</h2>
+
+<form action="/display/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+
+ </table>
+<input type="submit" value="Submit" />
+</form>
+<div>
+<h2>All your details are saved, Thank you!!</h2>
+</div>
+
+{% endblock %}
